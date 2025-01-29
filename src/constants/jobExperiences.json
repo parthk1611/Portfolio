@@ -1,0 +1,18 @@
+[
+  {
+    "id": "0",
+    "title": "AI Researcher | Full Stack Developer",
+    "company": "Centennial Innovates | Centennial College",
+    "description": "Your role at Centennial Innovates includes developing components and pages for Next.js web applications, utilizing CMS platforms like Prismic and Sanity. You collaborate closely with design teams to integrate visual concepts with web functionalities, ensuring a dynamic, content-rich, and user-friendly experience.",
+    "timePeriod": "January 2025 - Present",
+    "img": "images/centennial-innovates.jpeg"
+  },
+  {
+    "id": "1",
+    "title": "Junior Data Analyst",
+    "company": "Bajrang Transport",
+    "description": "Analysed large datasets to uncover patterns, trends, and insights to support business decision-making. Collaborated with cross-functional team to optimize operational efficiency and improve data-driven processes. Designed and implemented data visualisation dashboards to effectively communicate findings.",
+    "timePeriod": "December 2022 - March 2023",
+    "img": "images/bajrang.png"
+  }
+]

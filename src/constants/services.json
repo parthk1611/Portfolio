@@ -1,0 +1,34 @@
+[
+    {
+      "id": "1",
+      "title": "Frontend Development",
+      "thumbnail": "images/front.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Backend Development",
+        "thumbnail": "images/back.webp"
+    },
+    {
+      "id": "3",
+      "title": "Saas",
+        "thumbnail": "images/saas.svg"
+    },
+    {
+      "id": "4",
+      "title": "Full Stack Development",
+        "thumbnail": "images/full.gif"
+    },
+    {
+      "id": "5",
+      "title": "Data Administration",
+        "thumbnail": "images/data.webp"
+    },
+    {
+      "id": "6",
+      "title": "Testing & Optimization",
+        "thumbnail": "images/test.avif"
+    }
+    
+    
+  ]
