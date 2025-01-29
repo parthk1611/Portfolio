@@ -2,18 +2,14 @@
 
 Welcome to the Vite Portfolio repository, a project that showcases my professional journey, skills, and projects. The website has been crafted with love, passion, and a touch of personal flair. From the initial logo that uniquely combines my initials with elements representing my love for the trumpet and fascination with octopuses, to the detailed UI components, this portfolio reflects who I am both as a developer and an individual.
 
-![Landing Page Screenshot](./public/images/landing.png)
 
-### 🚀 [Live Demo](https://www.sarabaqla.dev/)
 
-Hosted on [Vercel](https://vercel.com/), known for its performance and scalability, ensuring a smooth experience for every visitor.
 
 
 ### 📱 Mobile Optimized
 
 This site has been meticulously designed to ensure an optimal viewing experience across devices. For a quick peek into the mobile navigation, check out this GIF:
 
-![Mobile Navigation GIF](./public/images/portfolio-demo.gif)
 
 ### 🔧 Built With
 
@@ -27,9 +23,10 @@ This site has been meticulously designed to ensure an optimal viewing experience
 
 ### 🎥 Highlights
 
-1. **Personal Logo**: This beautiful design by [Chelsea Sexton](https://github.com/chelsea314) welcomes users with my initials "SEB" artistically integrated with an octopus tentacle emerging from a trumpet bell. This fusion not only symbolizes my passion for music (through the trumpet, which I play) but also my admiration for the octopus, an incredibly intelligent invertebrate.
-2. **Quick Access Icons**: From the landing page, users can quickly navigate to my GitHub, LinkedIn, YouTube channel, view my resume, or catch up with my blog.
-3. **Interactive Project Cards**: The projects page showcases a collection of cards. Hovering over each card reveals its title, a quick summary, and icons leading to the deployed project and its associated GitHub repository.
+
+1. **Quick Access Icons**: From the landing page, users can quickly navigate to my GitHub, LinkedIn, YouTube channel, view my resume, or catch up with my blog.
+2
+. **Interactive Project Cards**: The projects page showcases a collection of cards. Hovering over each card reveals its title, a quick summary, and icons leading to the deployed project and its associated GitHub repository.
 
 ### 📬 Get in Touch
 
