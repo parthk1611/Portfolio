@@ -20,7 +20,7 @@ const ProjectModal = ({ project, isOpen, closeModal }) => (
       </button>
 
       <div>
-        <h3 className="text-darkDesert text-2xl sm:text-3xl font-bold mb-4">
+        <h3 className="text-darkDesert text-xl sm:text-lg font-bold mb-4">
           {project.title}
         </h3>
         <p className="text-darkDesert mb-4">{project.description}</p>

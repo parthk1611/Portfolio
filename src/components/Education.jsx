@@ -1,53 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
+import { FaTimesCircle } from "react-icons/fa";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 import schools from "../constants/schools.json";
-import { useSpring, animated, useTrail } from "react-spring";
 
-// create School component that receives a school object as props. Render method becomes more readable
-const School = ({ school, imageStyle }) => (
-  <div className="mb-4 flex items-center">
-    <animated.img
-      style={imageStyle}
-      src={school.img}
-      alt={school.university}
-      className="h-12 w-auto mr-4"
-    />
-    <div>
-      <h3 className="text-xl font-semibold text-darkDesert">{school.degree}</h3>
-      <p className="text-lg text-darkDesert">{school.university}</p>
-      <p className="text-darkDesert">{school.timePeriod}</p>
-    </div>
-  </div>
+
+const SchoolsCard = ({ education, onClick }) => (
+  <VerticalTimelineElement
+    icon={
+      <img
+        src={education.img}
+        alt={education.program}
+        className="h-full w-full rounded-full block "
+      />
+    }
+    contentStyle={{ position: "relative" }}
+    date={<span className="text-darkDesert">{education.timePeriod}</span>}
+  >
+
+    <h3 className="text-2xl font-bold text-darkDesert">{education.program}</h3>
+    <p className="text-xl text-darkDesert italic">{education.degree}</p>
+    <p className="text-xl text-darkDesert italic">{education.university}</p>
+    {/* <p className="text-darkDesert">{experience.description}</p> */}
+
+  </VerticalTimelineElement>
 );
 
-export default function Education() {
-  const educationSpring = useSpring({
-    from: { opacity: 0, transform: "scale(0.5)" },
-    to: { opacity: 1, transform: "scale(1)" },
-  });
-
-  const imageTrails = useTrail(schools.length, {
-    from: { transform: "translate3d(-100%,0,0) rotate(-360deg)", opacity: 0 },
-    to: { transform: "translate3d(0%,0,0) rotate(0deg)", opacity: 1 },
-  });
+const Education = () => {
+  const [modalContent, setModalContent] = useState(null);
 
   return (
-    <animated.section
+    <div
       id="education"
-      className="bg-lightDesert p-8 rounded-lg shadow-md w-full mx-auto flex flex-col items-center justify-center h-screen"
-      style={educationSpring}
+      className="bg-lightDesert p-8 rounded-lg shadow-lg w-full mx-auto mt-12"
     >
-      <div>
-        <h2 className="text-4xl font-bold text-darkDesert mb-4 text-center">
-          Education
-        </h2>
-        {schools.map((school, index) => (
-          <School
-            key={school.id}
-            school={school}
-            imageStyle={imageTrails[index]}
+      <h2 className="text-4xl font-bold text-darkDesert text-center">
+       Education
+      </h2>
+      <VerticalTimeline>
+        {schools.map((education, index) => (
+          <SchoolsCard
+          key={index} 
+          education={education}  
+          onClick={() => setModalContent(education)}
           />
         ))}
-      </div>
-    </animated.section>
+      </VerticalTimeline>
+
+      
+    </div>
   );
-}
+};
+
+export default Education;

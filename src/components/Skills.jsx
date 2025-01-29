@@ -6,17 +6,22 @@ import {
   FaNodeJs,
   FaNpm,
   FaBootstrap,
+  FaPython,
+  FaStripe,
+  FaJava
 } from "react-icons/fa";
 import {
   SiVisualstudiocode,
   SiMongodb,
   SiTailwindcss,
-  SiMui,
+  SiPrisma,
   SiTypescript,
   SiJavascript,
+  SiOpenai,
   SiYarn,
   SiVite,
   SiMysql,
+  SiRadixui
 } from "react-icons/si";
 import { DiGithubBadge } from "react-icons/di";
 
@@ -24,10 +29,9 @@ const skills = [
   { id: "html", Component: FaHtml5 },
   { id: "css", Component: FaCss3Alt },
   { id: "javascript", Component: SiJavascript },
-  { id: "bootstrap", Component: FaBootstrap },
   { id: "typescript", Component: SiTypescript },
   { id: "react", Component: FaReact },
-  { id: "mui", Component: SiMui },
+  { id: "stripe", Component: FaStripe },
   { id: "tailwind", Component: SiTailwindcss },
   { id: "node", Component: FaNodeJs },
   { id: "sql", Component: SiMysql },
@@ -37,6 +41,11 @@ const skills = [
   { id: "vite", Component: SiVite },
   { id: "vscode", Component: SiVisualstudiocode },
   { id: "github", Component: DiGithubBadge },
+  { id: "prisma", Component: SiPrisma },
+  { id: "openai", Component: SiOpenai },
+  { id: "python", Component: FaPython },
+  { id: "radixui", Component: SiRadixui },
+  { id: "java", Component: FaJava },
 ];
 
 export default function Skills() {
@@ -51,7 +60,7 @@ export default function Skills() {
       className="bg-lightDesert rounded-lg shadow-md flex items-center justify-center min-h-screen"
     >
       <div className="text-center max-w-2xl w-full mx-auto">
-        <h2 className="text-4xl font-bold text-darkDesert mb-6">Skills</h2>
+        <h2 className="text-4xl font-bold text-darkDesert mb-6">Services</h2>
         <div className="grid grid-cols-4 gap-4 my-4 justify-items-center">
           {trail.map((props, index) => {
             const { Component } = skills[index];

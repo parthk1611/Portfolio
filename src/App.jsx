@@ -11,6 +11,7 @@ import {
   Experience,
   Education,
   ContactMe,
+  Services,
   Footer,
   NotFound,
 } from '../src/components/index';
@@ -34,6 +35,7 @@ function App() {
             <Route path="/experience" element={<Experience />} />
             <Route path="/education" element={<Education />} />
             <Route path="/contact" element={<ContactMe />} />
+            <Route path="/services" element={<Services />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
