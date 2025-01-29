@@ -1,15 +1,19 @@
+/*
+Project: React Portfolio
+Parth Kevdiya
+301492239
+28th January 2025
+ */
 import React, { useState, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import { useSpring, animated } from "react-spring";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-// fetch environment variables outside the component or can use useEffect to avoid unnecessary computation during re-rendering
 const serviceId = import.meta.env.VITE_SERVICE;
 const templateId = import.meta.env.VITE_TEMPLATE;
 const apiKey = import.meta.env.VITE_API;
 
-// extract input tag, keep code DRY and avoid repeated style classes
 const InputField = ({ type, name, placeholder, value, onChange }) => (
   <input
     type={type}
@@ -34,28 +38,21 @@ export default function ContactMe() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  // avoid inline functions in render. define functions outside component using useCallback hook
   const handleNameChange = useCallback((e) => setName(e.target.value), []);
   const handleEmailChange = useCallback((e) => setEmail(e.target.value), []);
-  const handleMessageChange = useCallback(
-    (e) => setMessage(e.target.value),
-    []
-  );
+  const handleMessageChange = useCallback((e) => setMessage(e.target.value), []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // email input validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
       setError("Please enter a valid email address.");
       return;
     }
 
-    // emailjs logic
     emailjs.sendForm(serviceId, templateId, e.target, apiKey).then(
       (result) => {
-        console.log("result text", result.text);
         setSuccess(true);
         setName("");
         setEmail("");
@@ -63,10 +60,7 @@ export default function ContactMe() {
         toast.success("Your message has been sent successfully!");
       },
       (error) => {
-        console.log("error", error.text);
-        setError(
-          "Oops! It seems the JavaScript deities are having a moody day. Fear not, our digital shaman Sara is on it! If you need to bypass the spiritual realm and chat directly, email her at missatrox44@gmail.com"
-        );
+        setError("Oops! Something went wrong. Please try again later.");
         toast.error("Oops! Something went wrong. Please try again later.");
       }
     );
@@ -84,7 +78,7 @@ export default function ContactMe() {
         </h1>
         {success ? (
           <div>
-            <img src="/thankyou-toast.jpg" alt="Success" class="rounded-3xl" />
+            <img src="/thankyou-toast.jpg" alt="Success" className="rounded-3xl" />
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
@@ -119,7 +113,14 @@ export default function ContactMe() {
             {error && <p className="mt-4 text-red-500">{error}</p>}
           </form>
         )}
+        
       </div>
+      <br/>
+      <br/>
+      <div className="mt-6 text-center text-darkDesert">
+          <p className="text-md font-semibold">+1 (437) 298-2585&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;•&emsp;&emsp;&emsp;kevadiyaparth1611@gmail.com&emsp;&emsp;•&emsp;&emsp;100 Copperwood Sq, Scarborough, ON M1V 2C1</p>
+       
+        </div>
     </animated.section>
   );
 }

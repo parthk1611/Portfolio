@@ -1,3 +1,9 @@
+/*
+Project: React Portfolio
+Parth Kevdiya
+301492239
+28th January 2025
+ */
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { FaTimesCircle } from "react-icons/fa";

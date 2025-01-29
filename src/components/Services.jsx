@@ -1,3 +1,9 @@
+/*
+Project: React Portfolio
+Parth Kevdiya
+301492239
+28th January 2025
+ */
 import React, { useState } from "react";
 import { useTrail, useSpring, animated } from "react-spring";
 import services from "../constants/services.json";

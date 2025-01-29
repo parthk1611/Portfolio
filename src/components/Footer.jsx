@@ -1,3 +1,9 @@
+/*
+Project: React Portfolio
+Parth Kevdiya
+301492239
+28th January 2025
+ */
 import React from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SiPerplexity } from "react-icons/si";

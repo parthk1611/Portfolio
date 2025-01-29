@@ -1,3 +1,9 @@
+/*
+Project: React Portfolio
+Parth Kevdiya
+301492239
+28th January 2025
+ */
 import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 
@@ -33,7 +39,7 @@ export default function NavBar() {
             <img
               src="/dev-icon.svg"
               className="mr-3 h-6 sm:h-9"
-              alt="Sara Dev Logo"
+              alt="Parth Kevadiya logo"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               pkode.dev
@@ -90,14 +96,8 @@ export default function NavBar() {
               <NavLink to="/projects" onClick={toggleOpen}>
                 Projects
               </NavLink>
-              <NavLink to="/skills" onClick={toggleOpen}>
-                Skills
-              </NavLink>
               <NavLink to="/experience" onClick={toggleOpen}>
                 Experience
-              </NavLink>
-              <NavLink to="/education" onClick={toggleOpen}>
-                Education
               </NavLink>
               <NavLink to="/services" onClick={toggleOpen}>
                 Services

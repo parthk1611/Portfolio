@@ -1,3 +1,9 @@
+/*
+Project: React Portfolio
+Parth Kevdiya
+301492239
+28th January 2025
+ */
 import React, { memo, useState, useEffect } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { GITHUB_URL, LINKEDIN_URL, PERPLEXITY_URL } from "../constants/index";

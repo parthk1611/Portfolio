@@ -1,3 +1,9 @@
+/*
+Project: React Portfolio
+Parth Kevdiya
+301492239
+28th January 2025
+ */
 import React from "react";
 import { useSpring, animated } from "react-spring";
 import {
@@ -61,8 +67,6 @@ export default function Home() {
             <FaLinkedin className="w-10 h-10" />
             <span className="sr-only">LinkedIn account</span>
           </a>
-        
-         
           <a
             target="_blank"
             rel="noopener noreferrer"

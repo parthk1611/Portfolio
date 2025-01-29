@@ -5,16 +5,24 @@
     "description": "Stock Market Prediction Using Machine Learning is a project that predicts stock prices and trends by analyzing historical data, technical indicators, and financial metrics. Using algorithms like linear regression, decision trees, and neural networks, it forecasts future stock prices. The model is evaluated using performance metrics such as Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE). For example, the model might show an RMSE of 0.35 and an accuracy of 85% for stock predictions. Data from sources like Yahoo Finance and Quandl is processed to train the model, helping investors make informed, data-driven decisions.",
     "thumbnail": "images/ml.jpg",
     "github": "https://github.com/parthk1611/stock-market-predictione-using-ML",
-    "date": "August 2022"
+    "date": "Apr 2021 - July 2021"
   },
   {
     "id": "2",
+    "title": "Churn Analysis",
+    "description": "A churn analysis dashboard visualizes customer churn data to track trends and identify causes, ultimately leading to reduced churn and increased customer lifetime value. It also predicts future churn to guide data-driven decisions, resulting in improved customer loyalty and enhanced revenue, giving businesses a competitive advantage.",
+    "thumbnail": "images/churn.png",
+    "date": "Sep 2022 - Nov 2022"
+  },
+  {
+    "id": "3",
     "title": "companion.ai",
     "description": "Companion.ai is a personalized AI chatbot platform that allows users to create unique chatbot personas, offering empathetic and engaging conversations. Built with Next.js, Node.js, React, and powered by Prisma, MySQL, VectorDB, Llama, and OpenAI, it provides an intuitive and secure experience. Stripe handles payments, while Tailwind CSS ensures a sleek, responsive UI. Companion.ai is designed to deliver meaningful companionship through customized AI personas.",
     "thumbnail": "images/companion_ai.jpg",
     "deployed": "https://missatrox44.github.io/git-me-there",
     "github": "https://github.com/parthk1611/ai-chatbot",
-    "date": "July 2022"
+    "date": "Dec 2023 - Mar 2024"
   }
+  
 
 ]
