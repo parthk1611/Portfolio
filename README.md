@@ -28,9 +28,6 @@ This site has been meticulously designed to ensure an optimal viewing experience
 2
 . **Interactive Project Cards**: The projects page showcases a collection of cards. Hovering over each card reveals its title, a quick summary, and icons leading to the deployed project and its associated GitHub repository.
 
-### 📬 Get in Touch
-
-Found something interesting? Want to chat about a project or just say hi? The contact form powered by EmailJS ensures that your messages reach me directly. Alternatively, you can always reach out to me via the provided social icons.
 
 ### 📜 License
 
