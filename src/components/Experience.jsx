@@ -27,11 +27,7 @@ const JobExperienceCard = ({ experience, onClick }) => (
     contentStyle={{ position: "relative" }}
     date={<span className="text-darkDesert">{experience.timePeriod}</span>}
   >
-    {/* <img
-      src={experience.img}
-      alt={experience.title}
-      className=" hidden md:block h-14 w-auto rounded-full absolute top-0 right-0 mt-2 mr-2"
-    /> */}
+    
     <h3 className="text-2xl font-bold text-darkDesert">{experience.title}</h3>
     <p className="text-xl text-darkDesert italic mb-4">{experience.company}</p>
     {/* <p className="text-darkDesert">{experience.description}</p> */}
@@ -58,20 +54,7 @@ const NonDevExperienceCard = ({ experience, onClick }) => (
     contentStyle={{ position: "relative" }}
     date={<span className="text-darkDesert">{experience.timePeriod}</span>}
   >
-    {/* <div className="items-center">
-      <img
-        src={experience.img}
-        alt={experience.title}
-        className="
-        hidden md:block
-        w-auto 
-        h-16 sm:h-18 md:h-24 lg:h-28 xl:h-32 
-        rounded-full
-        justify-end
-        absolute right-0  
-       mr-2"
-      />
-    </div> */}
+    
     <h3 className="text-2xl font-bold text-darkDesert">{experience.title}</h3>
     <p className="text-xl text-darkDesert italic mb-2">{experience.company}</p>
     <div className="flex justify-between items-center">
