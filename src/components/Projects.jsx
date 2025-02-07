@@ -5,7 +5,7 @@ Parth Kevdiya
 28th January 2025
  */
 import React, { useState } from "react";
-import { FaGithub, FaExternalLinkAlt, FaTimesCircle } from "react-icons/fa";
+import { FaGithub, FaTimesCircle } from "react-icons/fa";
 import Modal from "react-modal";
 import { useTrail, useSpring, animated } from "react-spring";
 import projects from "../constants/projects.json";
@@ -48,7 +48,7 @@ const ProjectModal = ({ project, isOpen, closeModal }) => (
             rel="noopener noreferrer"
             className="mx-2 text-darkDesert hover:text-goldDesert transition-colors duration-300"
           >
-            <FaExternalLinkAlt size={32} />
+            
           </a>
         </div>
       </div>
