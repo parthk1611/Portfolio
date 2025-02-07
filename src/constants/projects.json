@@ -19,7 +19,6 @@
     "title": "companion.ai",
     "description": "Companion.ai is a personalized AI chatbot platform that allows users to create unique chatbot personas, offering empathetic and engaging conversations. Built with Next.js, Node.js, React, and powered by Prisma, MySQL, VectorDB, Llama, and OpenAI, it provides an intuitive and secure experience. Stripe handles payments, while Tailwind CSS ensures a sleek, responsive UI. Companion.ai is designed to deliver meaningful companionship through customized AI personas.",
     "thumbnail": "images/companion_ai.jpg",
-    "deployed": "https://missatrox44.github.io/git-me-there",
     "github": "https://github.com/parthk1611/ai-chatbot",
     "date": "Dec 2023 - Mar 2024"
   }
