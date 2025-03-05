@@ -2,14 +2,13 @@ import React, { useState, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import { useSpring, animated } from "react-spring";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 
-// fetch environment variables outside the component or can use useEffect to avoid unnecessary computation during re-rendering
 const serviceId = import.meta.env.VITE_SERVICE;
 const templateId = import.meta.env.VITE_TEMPLATE;
 const apiKey = import.meta.env.VITE_API;
 
-// extract input tag, keep code DRY and avoid repeated style classes
 const InputField = ({ type, name, placeholder, value, onChange }) => (
   <input
     type={type}
@@ -23,6 +22,8 @@ const InputField = ({ type, name, placeholder, value, onChange }) => (
 );
 
 export default function ContactMe() {
+  const navigate = useNavigate();
+  
   const contactSpring = useSpring({
     from: { opacity: 0, transform: "scale(0.5)" },
     to: { opacity: 1, transform: "scale(1)" },
@@ -34,7 +35,6 @@ export default function ContactMe() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
-  // avoid inline functions in render. define functions outside component using useCallback hook
   const handleNameChange = useCallback((e) => setName(e.target.value), []);
   const handleEmailChange = useCallback((e) => setEmail(e.target.value), []);
   const handleMessageChange = useCallback(
@@ -45,14 +45,12 @@ export default function ContactMe() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // email input validation
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
       setError("Please enter a valid email address.");
       return;
     }
 
-    // emailjs logic
     emailjs.sendForm(serviceId, templateId, e.target, apiKey).then(
       (result) => {
         console.log("result text", result.text);
@@ -61,6 +59,11 @@ export default function ContactMe() {
         setEmail("");
         setMessage("");
         toast.success("Your message has been sent successfully!");
+        
+        // Add a slight delay before redirecting to show the success message
+        setTimeout(() => {
+          navigate('/');  // Redirect to home page
+        }, 2000);
       },
       (error) => {
         console.log("error", error.text);
@@ -84,7 +87,7 @@ export default function ContactMe() {
         </h1>
         {success ? (
           <div>
-            <img src="/thankyou-toast.jpg" alt="Success" class="rounded-3xl" />
+            <img src="/thankyou-toast.jpg" alt="Success" className="rounded-3xl" />
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
