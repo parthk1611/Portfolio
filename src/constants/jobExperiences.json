@@ -8,6 +8,14 @@
     "img": "images/centennial-innovates.jpeg"
   },
   {
+    "id": "2",
+    "title": "Data Analyst",
+    "company": "Centennial College | Ti Automative",
+    "description": "Designed data pipelines and reporting systems to collect, analyze, and visualize test and production metrics using Python and SQL. Automated report generation and dashboarding to surface trends and enable data-driven decisions on quality and performance. Collaborated with multidisciplinary teams to translate analytics into actionable improvements for scheduling and system reliability. Maintained version-controlled analysis scripts and documentation to ensure reproducibility and auditability.",
+    "timePeriod": "September 2025 - December 2025",
+    "img": "images/ti-automotive.png"
+  },
+  {
     "id": "1",
     "title": "Junior Data Analyst",
     "company": "Bajrang Transport",
