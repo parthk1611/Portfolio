@@ -68,7 +68,7 @@ export default function ContactMe() {
       (error) => {
         console.log("error", error.text);
         setError(
-          "Oops! It seems the JavaScript deities are having a moody day. Fear not, our digital shaman Sara is on it! If you need to bypass the spiritual realm and chat directly, email her at missatrox44@gmail.com"
+          "Oops! It seems the JavaScript deities are having a moody day. Fear not, our digital shaman Parth Kevadiya is on it! If you need to bypass the spiritual realm and chat directly, email him at kevadiyaparth1611@gmail.com"
         );
         toast.error("Oops! Something went wrong. Please try again later.");
       }
