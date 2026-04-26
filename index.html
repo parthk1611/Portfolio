@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parth Kevadiya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Limelight&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "motion": "https://cdn.jsdelivr.net/npm/motion@12.37.0/+esm"
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-black text-white antialiased">
+
+  <!-- Dotted surface background -->
+  <div id="dotted-bg-root"></div>
+
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center gap-6">
+    <div id="loader-root"></div>
+    <p class="text-xs tracking-[0.4em] uppercase text-neutral-600 font-medium" id="load-text">Loading</p>
+  </div>
+
+  <!-- ============ HUD OVERLAY ============ -->
+  <div id="hud-overlay" class="hidden"></div>
+
+  <!-- ============ GUTTER RAILS (xl+) ============ -->
+  <div id="left-rail" class="hidden xl:flex pointer-events-none fixed inset-y-0 z-[30] flex-col items-center" style="left:max(28px, 2.2vw); width:24px;">
+    <div style="flex:1; width:1px; background:linear-gradient(to bottom, transparent 0%, rgba(231,8,20,0.22) 12%, rgba(231,8,20,0.22) 88%, transparent 100%);"></div>
+    <div style="position:absolute; top:20%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+    <div style="position:absolute; top:40%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+    <div style="position:absolute; top:60%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+    <div style="position:absolute; top:80%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+  </div>
+  <div id="right-rail" class="hidden xl:flex pointer-events-none fixed inset-y-0 z-[30] flex-col items-center" style="right:max(28px, 2.2vw); width:24px;">
+    <div style="flex:1; width:1px; background:linear-gradient(to bottom, transparent 0%, rgba(231,8,20,0.22) 12%, rgba(231,8,20,0.22) 88%, transparent 100%);"></div>
+    <div style="position:absolute; top:20%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+    <div style="position:absolute; top:40%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+    <div style="position:absolute; top:60%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+    <div style="position:absolute; top:80%; width:8px; height:1px; background:rgba(231,8,20,0.35);"></div>
+  </div>
+
+  <!-- ============ FIXED NAV ============ -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-[60] pointer-events-none">
+    <nav class="pointer-events-auto flex items-center justify-between px-5 md:px-8 py-3" style="font-family:'Inter',sans-serif;">
+      <!-- Logo -->
+      <a href="#cinematic" class="flex items-center gap-3 no-underline" style="text-decoration:none;">
+        <span class="text-[11px] font-mono font-semibold uppercase tracking-[0.3em]" style="color:#e0e0e0;">Portfolio</span>
+      </a>
+      <!-- Center tabs — hidden on mobile -->
+      <div class="hidden md:flex items-center">
+        <a href="#cinematic"    class="nav-tab active-tab text-[11px] font-mono uppercase tracking-[0.28em] px-4 py-2 transition-colors duration-200" style="color:#e0e0e0;" data-section="cinematic">00&nbsp;DOSSIER</a>
+        <a href="#proj-anchor"  class="nav-tab text-[11px] font-mono uppercase tracking-[0.28em] px-4 py-2 transition-colors duration-200" data-section="proj-anchor">01&nbsp;EVIDENCE</a>
+        <a href="#about-anchor" class="nav-tab text-[11px] font-mono uppercase tracking-[0.28em] px-4 py-2 transition-colors duration-200" data-section="about-anchor">02&nbsp;SUBJECT</a>
+        <a href="#skills-anchor" class="nav-tab text-[11px] font-mono uppercase tracking-[0.28em] px-4 py-2 transition-colors duration-200" data-section="skills-anchor">03&nbsp;ARSENAL</a>
+        <a href="#contact-anchor" class="nav-tab text-[11px] font-mono uppercase tracking-[0.28em] px-4 py-2 transition-colors duration-200" data-section="contact-anchor">04&nbsp;CHANNEL</a>
+      </div>
+      <!-- Open to work pill -->
+      <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.22em]" style="color:rgba(231,8,20,0.85);">
+        <span class="inline-block h-[6px] w-[6px] rounded-full rec-pulse" style="background:#e70814;"></span>
+        <span class="hidden sm:inline">OPEN_TO_WORK</span>
+      </div>
+    </nav>
+    <!-- thin red bottom border -->
+    <div style="height:1px; background:linear-gradient(to right, transparent, rgba(231,8,20,0.40), transparent);"></div>
+  </header>
+
+  <!-- ============ CINEMATIC SECTION ============ -->
+  <section id="cinematic" class="relative">
+    <!-- Spacer for scroll length -->
+    <div id="scroll-spacer" style="height: 1000vh;"></div>
+
+    <!-- Fixed canvas for video frames -->
+    <div id="frame-container" class="fixed w-full z-0" style="top:-5vh;height:110vh;">
+      <canvas id="frame-canvas" class="w-full h-full" data-frame-count="169" aria-label="cinematic video frame"></canvas>
+      <div id="frame-overlay" class="absolute inset-0 bg-black/30"></div>
+      <!-- Edge fades -->
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.85) 100%);"></div>
+      <div class="absolute inset-x-0 top-0 h-40 pointer-events-none" style="background:linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);"></div>
+      <div class="absolute inset-x-0 bottom-0 h-40 pointer-events-none" style="background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);"></div>
+      <!-- Grain -->
+      <div class="absolute inset-0 pointer-events-none opacity-[0.04]" style="background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E');"></div>
+    </div>
+
+    <!-- Text Overlays -->
+    <div id="text-overlays" class="fixed inset-0 z-10 pointer-events-none flex items-center justify-center">
+
+      <!-- Text 1: Name -->
+      <div class="text-overlay original-title absolute inset-0 flex items-center justify-center opacity-0" data-index="0">
+        <div class="text-center px-6">
+          <p class="text-sm md:text-base tracking-[0.5em] uppercase text-neutral-300 font-light mb-4 translate-y-6 reveal-child" style="font-family:'IBM Plex Mono',monospace;">- Portfolio - </p>
+          <h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl 2xl:text-[10rem] font-bold tracking-tight leading-none translate-y-6 reveal-child" style="font-family:'Playfair Display',serif;">
+            Parth<br/><span class="italic font-normal">Kevadiya</span>
+          </h1>
+          <div class="w-16 h-[1px] bg-white/40 ml-auto mt-8 reveal-child"></div>
+        </div>
+      </div>
+
+      <!-- Text 2: Discipline -->
+      <div class="text-overlay absolute inset-0 flex items-end pb-[10vh] justify-start pl-[6vw] opacity-0" data-index="1">
+        <div>
+          <p class="text-xs tracking-[0.4em] uppercase text-red-600/80 font-medium mb-3 translate-y-6 reveal-child" style="font-family:'IBM Plex Mono',monospace;">// Discipline</p>
+          <h2 class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.05] tracking-tight translate-y-6 reveal-child">
+            Data-Driven<br/>AI Engineer
+          </h2>
+          <div class="w-24 h-[2px] bg-red-600/60 mt-5 reveal-child"></div>
+        </div>
+      </div>
+
+      <!-- Text 3: Quote -->
+      <div class="text-overlay absolute inset-0 flex items-end pb-[10vh] justify-end pr-[6vw] opacity-0" data-index="2">
+        <div class="text-right max-w-[90vw] sm:max-w-sm md:max-w-md">
+          <p class="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-snug tracking-wide translate-y-6 reveal-child" style="font-family:'Playfair Display',serif;">
+            "I am the <span class="italic text-red-500">EVIDENCE</span>"<br/><span class="text-sm sm:text-xl md:text-2xl lg:text-3xl tracking-widest text-neutral-400 font-light">~ Jensen Huang</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Text 4: Expertise -->
+      <div class="text-overlay absolute inset-0 flex items-start pt-[10vh] justify-end pr-[6vw] opacity-0" data-index="3">
+        <div class="text-right max-w-xl">
+          <p class="text-xs tracking-[0.4em] uppercase text-neutral-400 font-medium mb-3 translate-y-6 reveal-child" style="font-family:'IBM Plex Mono',monospace;">// Expertise</p>
+          <h2 class="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight translate-y-6 reveal-child">
+            Full-Stack<br/>Developer &<br/><span class="text-red-600">ML Specialist</span>
+          </h2>
+        </div>
+      </div>
+
+      <!-- Text 5: CTA -->
+      <div class="text-overlay absolute inset-0 flex items-end pb-[8vh] justify-center opacity-0" data-index="4">
+        <div class="text-center">
+          <p class="text-xs tracking-[0.5em] uppercase text-neutral-400 font-light mb-4 translate-y-6 reveal-child" style="font-family:'IBM Plex Mono',monospace;">scroll to investigate</p>
+          <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold translate-y-6 reveal-child">The Work Below</h2>
+          <div class="mt-6 translate-y-6 reveal-child">
+            <svg class="w-6 h-6 mx-auto text-white/50 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ RESUME SECTION ============ -->
+  <section id="resume" class="relative z-20">
+
+    <!-- Transition gradient -->
+    <div class="h-40 bg-gradient-to-b from-black to-transparent"></div>
+
+    <div class="max-w-[min(92vw,1600px)] mx-auto px-6 md:px-12">
+
+      <!-- ——— Intro ——— -->
+      <div class="resume-reveal flex flex-col md:flex-row gap-12 md:gap-20 items-start mb-20 pb-16 border-b" style="border-color:rgba(255,255,255,0.05);">
+        <div class="flex-1 min-w-0">
+          <span class="text-[11px] font-mono font-semibold tracking-[0.45em] uppercase block mb-7" style="color:rgba(231,8,20,0.55);"> PK-26 · PARTH KEVADIYA</span>
+          <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.04] mb-8" style="font-family:'Playfair Display',serif;">
+            Data<br/>engineer.<br/><span class="italic font-normal" style="color:#e70814;">AI builder.</span>
+          </h2>
+          <p class="text-base md:text-lg leading-relaxed max-w-md" style="color:#ada2a2;">
+            Building systems where data meets product — ML pipelines, LLM integrations, and full-stack apps deployed at scale.
+          </p>
+        </div>
+        <div class="flex-shrink-0 w-full md:w-80 space-y-4 md:pt-16">
+          <div class="claude-card p-7">
+            <p class="text-[11px] font-mono font-bold uppercase tracking-[0.35em] mb-3" style="color:rgb(255, 0, 13);">Current</p>
+            <p class="font-semibold text-lg text-white">Data Analyst</p>
+            <p class="text-sm mt-1" style="color:#fefdfd;">TI Automotive · 2023–Present</p>
+          </div>
+          <div class="claude-card p-7">
+            <p class="text-[11px] font-mono font-bold uppercase tracking-[0.35em] mb-3" style="color:#fd0008;">Education</p>
+            <p class="font-semibold text-lg text-white">Applied AI & ML</p>
+            <p class="text-sm mt-1" style="color:#f9f9f9;">Centennial College · Ontario</p>
+          </div>
+          <div class="claude-card p-7">
+            <p class="text-[11px] font-mono font-bold uppercase tracking-[0.35em] mb-3" style="color:#ff0000;">Contact</p>
+            <p class="text-sm break-all" style="color:#ffffff;">kevadiyaparth1611@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ——— Work Experience ——— -->
+      <div id="about-anchor" class="resume-reveal mb-6">
+        <p class="text-[10px] font-mono font-bold uppercase tracking-[0.45em] mb-2" style="color:rgba(231,8,20,0.5);">// SECTOR_00</p>
+        <h3 class="text-2xl md:text-4xl xl:text-5xl font-bold tracking-tight" style="font-family:'Playfair Display',serif;">Work Experience</h3>
+      </div>
+      <div id="about-root" class="resume-reveal mb-20"></div>
+
+
+      <!-- ——— Projects ——— -->
+      <div id="proj-anchor" class="resume-reveal mb-6">
+        <p class="text-[10px] font-mono font-bold uppercase tracking-[0.45em] mb-2" style="color:rgba(231,8,20,0.5);">// SECTOR_02</p>
+        <h3 class="text-2xl md:text-4xl xl:text-5xl font-bold tracking-tight" style="font-family:'Playfair Display',serif;">Evidence Board</h3>
+      </div>
+
+      <div id="projects-root" class="resume-reveal mb-20"></div>
+
+      <!-- ——— Skills header ——— -->
+      <div id="skills-anchor" class="resume-reveal mb-6">
+        <p class="text-[10px] font-mono font-bold uppercase tracking-[0.45em] mb-2" style="color:rgba(231,8,20,0.5);">// SECTOR_03</p>
+        <h3 class="text-2xl md:text-4xl xl:text-5xl font-bold tracking-tight" style="font-family:'Playfair Display',serif;">Arsenal</h3>
+      </div>
+
+    </div><!-- close max-w-7xl -->
+
+    <!-- Skills carousel — full viewport width -->
+    <div id="skills-root" class="resume-reveal mb-20 w-full"></div>
+
+    <div class="max-w-[min(92vw,1600px)] mx-auto px-6 md:px-12">
+
+      <!-- ——— Contact ——— -->
+      <div id="contact-anchor" class="resume-reveal mb-6">
+        <p class="text-[10px] font-mono font-bold uppercase tracking-[0.45em] mb-2" style="color:rgba(231,8,20,0.5);">// SECTOR_04</p>
+        <h3 class="text-2xl md:text-4xl xl:text-5xl font-bold tracking-tight" style="font-family:'Playfair Display',serif;">Channel Open</h3>
+      </div>
+
+      <div id="contact-root" class="resume-reveal mb-20"></div>
+
+      <!-- ——— Footer ——— -->
+      <div class="resume-reveal pb-24 pt-16" style="border-top:1px solid rgba(231,8,20,0.08);">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div>
+            <h3 class="text-xl font-bold tracking-tight mb-1" style="font-family:'Playfair Display',serif;">Parth Kevadiya</h3>
+            <p class="text-sm font-mono" style="color:#525252;">Data Engineer · AI Builder · Full-Stack Developer</p>
+          </div>
+          <div class="text-left md:text-right">
+            <p class="text-xs font-mono tracking-widest" style="color:#2a2a2a;">V3.0 · CASE_FILE_PK-26</p>
+            <p class="text-xs font-mono mt-1" style="color:#2a2a2a;">&copy; 2026 PARTH KEVADIYA · TORONTO, ON</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.tsx"></script>
+  <script type="module" src="/script.js"></script>
+</body>
+</html>
