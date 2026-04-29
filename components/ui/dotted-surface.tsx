@@ -103,15 +103,15 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
       for (let ix = 0; ix < AMOUNTX; ix++) {
         for (let iy = 0; iy < AMOUNTY; iy++) {
           pos[i * 3 + 1] =
-            Math.sin((ix + count) * 0.3) * 50 +
-            Math.sin((iy + count) * 0.5) * 50;
+            Math.sin((ix + count) * 0.3) * 25 +
+            Math.sin((iy + count) * 0.5) * 25;
           i++;
         }
       }
 
       posAttr.needsUpdate = true;
       renderer.render(scene, camera);
-      count += 0.1;
+      count += 0.05;
     };
 
     const handleResize = () => {

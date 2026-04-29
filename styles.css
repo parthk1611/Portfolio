@@ -648,26 +648,39 @@ body {
   z-index: 2;
 }
 
-/* layer 3 — front, smallest: Discord dark → blurple */
+/* layer 3 — Instagram gradient */
 .sc-l3 {
   bottom: 0;
   left: 0;
-  width: 50%;
-  height: 46%;
-  background: linear-gradient(145deg, #1a1b2e 0%, #3b3f9f 55%, #5865F2 100%);
-  border: 1px solid rgba(88,101,242,0.35);
+  width: 52%;
+  height: 48%;
+  background: linear-gradient(145deg, #4f0f3f 0%, #c13584 48%, #f77737 100%);
+  border: 1px solid rgba(193,53,132,0.38);
   z-index: 3;
+}
+
+/* layer 4 — front: Discord dark → blurple */
+.sc-l4 {
+  bottom: 4px;
+  left: 4px;
+  width: 38%;
+  height: 35%;
+  background: linear-gradient(145deg, #1a1b2e 0%, #3b3f9f 55%, #5865F2 100%);
+  border: 1px solid rgba(88,101,242,0.40);
+  z-index: 4;
 }
 
 /* hover: layers fan outward from bottom-left */
 .sc-card:hover .sc-l1 { transform: translate(-5px, 5px); }
 .sc-card:hover .sc-l2 { transform: translate(-2px, 2px); }
 .sc-card:hover .sc-l3 { transform: translate(0, 0); }
+.sc-card:hover .sc-l4 { transform: translate(2px, -2px); }
 
 /* individual layer hover glow */
 .sc-l1:hover { border-color: rgba(255,255,255,0.30); box-shadow: 0 0 24px rgba(147,51,234,0.25); }
-.sc-l2:hover { border-color: rgba(255,255,255,0.38); box-shadow: 0 0 24px rgba(236,72,153,0.28); }
-.sc-l3:hover { border-color: rgba(255,255,255,0.80); box-shadow: 0 0 24px rgba(255,255,255,0.22); }
+.sc-l2:hover { border-color: rgba(255,255,255,0.38); box-shadow: 0 0 24px rgba(0,119,181,0.28); }
+.sc-l3:hover { border-color: rgba(255,255,255,0.46); box-shadow: 0 0 24px rgba(236,72,153,0.30); }
+.sc-l4:hover { border-color: rgba(255,255,255,0.80); box-shadow: 0 0 24px rgba(88,101,242,0.35); }
 
 /* icon — top-right of each layer */
 .sc-icon {
@@ -686,18 +699,12 @@ body {
   transition: fill 0.2s ease;
 }
 
-/* white bg layer — icon dark */
-.sc-l3 .sc-icon .svg {
-  fill: rgba(109, 40, 217, 0.70);
-}
-
 .sc-l1:hover .sc-icon .svg,
-.sc-l2:hover .sc-icon .svg {
+.sc-l2:hover .sc-icon .svg,
+.sc-l3:hover .sc-icon .svg,
+.sc-l4 .sc-icon .svg,
+.sc-l4:hover .sc-icon .svg {
   fill: #ffffff;
-}
-
-.sc-l3:hover .sc-icon .svg {
-  fill: #6d28d9;
 }
 
 /* ===== HUD & NAV THEME ===== */
