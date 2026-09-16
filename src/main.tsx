@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Analytics } from "@vercel/analytics/react";
+import { inject } from "@vercel/analytics";
 import Lenis from "lenis";
 import { ThemeProvider } from "next-themes";
 import ExpandOnHover from "../components/ui/expand-cards";
@@ -10,6 +10,9 @@ import { ContactForm } from "../components/ui/contact-form";
 import { AboutMe } from "../components/ui/connoisseur-stack-interactor";
 import { DottedSurface } from "../components/ui/dotted-surface";
 import "./index.css";
+
+// Initialize Vercel Web Analytics
+inject();
 
 const lenis = new Lenis({
   lerp: 0.08,
@@ -29,7 +32,6 @@ if (dottedBgRoot) {
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <DottedSurface style={{ zIndex: 0 }} />
       </ThemeProvider>
-      <Analytics />
     </StrictMode>,
   );
 }
