@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { Analytics } from "@vercel/analytics/react";
 import Lenis from "lenis";
 import { ThemeProvider } from "next-themes";
 import ExpandOnHover from "../components/ui/expand-cards";
@@ -28,6 +29,7 @@ if (dottedBgRoot) {
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         <DottedSurface style={{ zIndex: 0 }} />
       </ThemeProvider>
+      <Analytics />
     </StrictMode>,
   );
 }
