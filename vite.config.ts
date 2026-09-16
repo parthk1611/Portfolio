@@ -9,4 +9,12 @@ export default defineConfig({
       "@": fileURLToPath(new URL(".", import.meta.url)),
     },
   },
+  build: {
+    rollupOptions: {
+      external: ["motion"],
+      input: {
+        main: fileURLToPath(new URL("./index.html", import.meta.url)),
+      },
+    },
+  },
 });
